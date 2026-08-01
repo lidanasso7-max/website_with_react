@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className='flex  justify-between  items-center h-20 '>
 
             {/* logo */}
-            <div className=' flex justifey-btween items-center text-xl font-bold cursor-pointer'>
+            <div className=' flex  items-center text-xl font-bold cursor-pointer'>
               <span className='text-blue-800'>work</span>
               <span className='text-yellow-800'>flow</span>
             </div>
@@ -30,14 +30,18 @@ const Navbar = () => {
 
             {/* the button of the menu */}
             <div className='sm:hidden  flex items-center '>
-              <button  onClick={(prev)=>{setisopen(!prev)}} className='text-slate-3000 hover:text-red p-3 focus:outline-none'>{isopen ? <X size={28}/> : <Menu size={28}/>}</button>
-              
-
+              <button  onClick={() => setisopen((prev) => !prev)}className='hover:text-blue-700 cursor-pointer text-slate-300 p-3 focus:outline-none' >{isopen ? <X size={28}/> : <Menu size={28}/>}</button>
             </div>
         </div>
         
       </div>
-
+{isopen && (
+    <div className='flex flex-col bg-gray-300 items-end pr-5 sm:hidden '>
+    <a href="#Features" className='text-slate-400 hover:text-black'>Features</a>
+              <a href="#Pricing" className='text-slate-400 hover:text-black'>Pricing</a>
+              <a href="#Testimonials" className='text-slate-400 hover:text-black'>Testimonials</a>
+    </div>
+)}
     </header>
     
   
