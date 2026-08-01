@@ -1,6 +1,7 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import { Menu , X } from 'lucide-react'
 const Navbar = () => {
+  const [isopen ,setisopen]=useState(false)
   return (
     // start the header
     <header className='fixed top-0 right-0 left-0 backdrop-blur-sm border-b z-50'>
@@ -9,22 +10,30 @@ const Navbar = () => {
 
         {/* container */}
 
-        <div className='flex  justify-between items-center h-20 '>
+        <div className='flex  justify-between  items-center h-20 '>
 
             {/* logo */}
-            <div className='text-xl font-bold text-white'>
-              workflow
+            <div className=' flex justifey-btween items-center text-xl font-bold cursor-pointer'>
+              <span className='text-blue-800'>work</span>
+              <span className='text-yellow-800'>flow</span>
             </div>
             {/* logo */}
             
             {/* Navigation links */}
-            <nav className='flex flex-col'>
-              <a href="#Features" className='text-slate-300 hover:text-white'>Features</a>
-              <a href="#Pricing" className='text-slate-300 hover:text-white'>Pricing</a>
-              <a href="#Testimonials" className='text-slate-300 hover:text-white'>Testimonials</a>
+            <nav className='hidden sm:flex items-center gap-3 '>
+              <a href="#Features" className='text-slate-400 hover:text-black'>Features</a>
+              <a href="#Pricing" className='text-slate-400 hover:text-black'>Pricing</a>
+              <a href="#Testimonials" className='text-slate-400 hover:text-black'>Testimonials</a>
             </nav>
             {/* Navigation links */}
+           
 
+            {/* the button of the menu */}
+            <div className='sm:hidden  flex items-center '>
+              <button  onClick={(prev)=>{setisopen(!prev)}} className='text-slate-3000 hover:text-red p-3 focus:outline-none'>{isopen ? <X size={28}/> : <Menu size={28}/>}</button>
+              
+
+            </div>
         </div>
         
       </div>
