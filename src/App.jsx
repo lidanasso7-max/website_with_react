@@ -6,12 +6,13 @@ import Footer from "./Componants/Footer";
 import Features from "./Componants/Features";
 import Testmonations from "./Componants/Testmonations";
 
-import './App.css'; // 👈 صلحنا الـ import هنا
+import './App.css'; 
 
 const App = () => {
   return (
     <>
       <Navbar />
+      <Hero/>
     </> 
   );
 };
