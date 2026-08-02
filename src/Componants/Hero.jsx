@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
 const Hero = () => {
   const [mouseposition, setmouseposition] = useState({ x: 0, y: 0 })
+  const [activetap, setactivetap] = useState('app.jsx')
 
   useEffect(() => {
     function handlemouse(e) {
@@ -34,10 +37,13 @@ const Hero = () => {
               </span>
             </div>
             <div className='flex gap-2 items-center pt-2 pl-2'>
-              <button className='rounded-t-2xl border p-3 backdrop-blur-sm'>app.jsx</button>
-              <button className='rounded-t-2xl border p-3 backdrop-blur-sm'>navbar.jsx</button>
-              <button className='rounded-t-2xl border p-3 backdrop-blur-sm'>header.jsx</button>
+              <button onClick={()=>setactivetap('app.jsx')} className={`rounded-t-2xl ${activetap==='app.jsx' ? 'bg-blue-600 text-white border-blue-600' : 'bg-white/5 text-gray-300 border-white/10 hover:bg-white-10'} cursor-pointer border border-white p-3 backdrop-blur-sm`}>app.jsx</button>
+              <button onClick={()=>setactivetap('navbar.jsx')} className={`rounded-t-2xl ${activetap === 'navbar.jsx' ? 'bg-blue-600 text-white border-blue-600' : 'bg-white/5 text-gray-300 border-white/10 hover:bg-white/10'} cursor-pointer border p-3 backdrop-blur-sm`}>navbar.jsx</button>
+              <button onClick={()=>setactivetap('header.jsx')} className={`rounded-t-2xl ${activetap==='header.jsx' ? 'bg-blue-600 text-white border-blue-600' : 'bg-white/5 text-gray-300 border-white/10 hover:bg-white-10'} cursor-pointer border border-white p-3 backdrop-blur-sm`}>header.jsx</button>
             </div>
+            <SyntaxHighlighter language='javescript' style={nightOwl}>
+              {codeExamples[activetap]}
+            </SyntaxHighlighter>
           </div>
         </div>
       </div>
